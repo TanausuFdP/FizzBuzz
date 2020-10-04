@@ -31,17 +31,30 @@ public class FizzBuzz_ {
         assertThat(fizzBuzz.of(10)).isEqualTo("Buzz");
     }
 
+    @Test
+    public void should_return_fizzbuzz_when_it_is_multiple_of_fifteen() {
+        assertThat(fizzBuzz.of(15)).isEqualTo("FizzBuzz");
+        assertThat(fizzBuzz.of(30)).isEqualTo("FizzBuzz");
+    }
+
     private class FizzBuzz {
         public String of(int number) {
-            return isMultipleOfFive(number) ? isMultipleOfThree(number) ? String.valueOf(number) : "Fizz" : "Buzz";
+            if(isMultipleOfFifteen(number)) return "FizzBuzz";
+            if (isMultipleOfFive(number)) return "Buzz";
+            if (isMultipleOfThree(number)) return "Fizz";
+            return String.valueOf(number);
+        }
+
+        private boolean isMultipleOfFifteen(int number) {
+            return number % 15 == 0;
         }
 
         private boolean isMultipleOfFive(int number) {
-            return number % 5 != 0;
+            return number % 5 == 0;
         }
 
         private boolean isMultipleOfThree(int number) {
-            return number % 3 != 0;
+            return number % 3 == 0;
         }
     }
 }
