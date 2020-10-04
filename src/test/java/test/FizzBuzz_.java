@@ -14,13 +14,19 @@ public class FizzBuzz_ {
     }
 
     @Test
+    public void should_return_fizz_when_it_is_multiple_of_three() {
+        assertThat(fizzBuzz.of(3)).isEqualTo("Fizz");
+    }
+
+    @Test
     public void should_return_number_when_it_is_not_fizz_and_not_buzz() {
         assertThat(fizzBuzz.of(1)).isEqualTo("1");
+        assertThat(fizzBuzz.of(2)).isEqualTo("2");
     }
 
     private class FizzBuzz {
         public String of(int number) {
-            return "1";
+            return number != 3 ? String.valueOf(number) : "Fizz";
         }
     }
 }
