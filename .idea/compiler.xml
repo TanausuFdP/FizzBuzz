@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="fizzbuzz" />
         <module name="Kata1" />
+        <module name="Kata 1" />
       </profile>
     </annotationProcessing>
   </component>
